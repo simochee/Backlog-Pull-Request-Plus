@@ -1,8 +1,3 @@
-commit-msg:
-  commands:
-    commitlint:
-      run: npx --no -- commitlint --edit $1
-
 pre-commit:
   commands:
     biome:
