@@ -59,6 +59,10 @@ export const patchCodeView = async () => {
 				const open = detailsEl?.open ?? false;
 				if (summaryEl && checked !== open) {
 					summaryEl.click();
+
+					requestAnimationFrame(() => {
+						summaryEl.scrollIntoView({ block: "center" });
+					});
 				}
 			});
 			el.insertAdjacentElement("afterend", button);

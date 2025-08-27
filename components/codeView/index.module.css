@@ -1,5 +1,9 @@
 .summary {
+    position: sticky;
+    top: calc(var(--scroll-pull-request-height) + var(--globalNavHeight));
+    z-index: 570;
     padding-block: 4px !important;
+    border-bottom: 1px solid var(--borderColorWeak);
 
     &:has(.checkButton[aria-checked='true']) {
         background-color: var(--backgroundColorWeak);

@@ -1,3 +1,7 @@
+.header {
+    top: var(--globalNavHeight) !important;
+}
+
 .summary {
     flex-wrap: nowrap !important;
 

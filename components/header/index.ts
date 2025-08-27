@@ -2,7 +2,26 @@ import { asyncQuerySelector } from "@/utils/dom";
 import styles from "./index.module.css";
 
 export const patchHeader = async () => {
-	const summaryEl = await asyncQuerySelector(".content-header__summary");
+	const headerEl = await asyncQuerySelector("#scroll-pull-request", {
+		timeout: 9999,
+	});
+
+	if (!(headerEl instanceof HTMLElement)) return;
+
+	headerEl.classList.add(styles.header);
+	const observer = new ResizeObserver((entries) => {
+		for (const entry of entries) {
+			const [{ blockSize }] = entry.contentBoxSize;
+
+			document.body.style.setProperty(
+				"--scroll-pull-request-height",
+				`${blockSize}px`,
+			);
+		}
+	});
+	observer.observe(headerEl);
+
+	const summaryEl = headerEl.querySelector(".content-header__summary");
 
 	if (!summaryEl) return;
 
@@ -15,7 +34,6 @@ export const patchHeader = async () => {
 		if (!(el instanceof HTMLElement)) return;
 
 		const observer = new MutationObserver(() => {
-			console.log("called!");
 			el.title = el.textContent?.replace(/[ \n]+/g, " ").trim() || "";
 		});
 		observer.observe(el, {
