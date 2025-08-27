@@ -8,6 +8,9 @@
 		"dev": "wxt",
 		"postinstall": "lefthook install && wxt prepare"
 	},
+	"dependencies": {
+		"p-debounce": "^4.0.0"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.2",
 		"@wxt-dev/auto-icons": "^1.1.0",

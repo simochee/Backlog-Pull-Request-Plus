@@ -1,0 +1,85 @@
+.summary {
+    padding-block: 4px !important;
+
+    &:has(.checkButton[aria-checked='true']) {
+        background-color: var(--backgroundColorWeak);
+    }
+
+    :global(.code-view__header-content > div) {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+    }
+
+    :global(.code-view__header-path) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.actionButton {
+    flex-shrink: 0 !important;
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    margin-left: auto;
+    border-radius: 4px;
+    color: var(--textColorWeak);
+
+    &:hover {
+        background: var(--backgroundColorWeak);
+    }
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        display: block;
+        mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/outline/code.svg);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        background: currentColor;
+    }
+}
+
+.checkButton {
+    flex-shrink: 0 !important;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    height: 32px;
+    padding-inline: 8px;
+    margin-left: 4px;
+    border: 1px solid var(--borderColorWeak);
+    border-radius: 4px;
+    background: var(--backgroundColorSchemeBase);
+    font-size: 12px;
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        display: block;
+        mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/outline/square.svg);
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        color: var(--borderColorPrimary);
+        background: rgb(from currentColor r g b / 0.6);
+    }
+
+    &:hover::before {
+        background: currentColor;
+    }
+
+    &[aria-checked="true"] {
+        background: rgb(from var(--commonColorAcua) r g b / 0.1);
+        border-color: rgb(from var(--commonColorAcua) r g b / 0.25);
+
+        &::before {
+            mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/filled/square-check.svg);
+            color: var(--commonColorAcua);
+        }
+    }
+}
