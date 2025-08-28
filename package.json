@@ -9,10 +9,15 @@
 		"postinstall": "lefthook install && wxt prepare"
 	},
 	"dependencies": {
-		"p-debounce": "^4.0.0"
+		"p-debounce": "^4.0.0",
+		"react": "^19.1.1",
+		"react-dom": "^19.1.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.2",
+		"@tsconfig/vite-react": "^7.0.0",
+		"@types/react": "^19.1.12",
+		"@types/react-dom": "^19.1.9",
 		"@wxt-dev/auto-icons": "^1.1.0",
 		"@wxt-dev/i18n": "^0.2.4",
 		"lefthook": "^1.12.3",

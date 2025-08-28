@@ -1,0 +1,29 @@
+.buttons {
+    position: relative;
+    z-index: 1;
+    grid-area: buttons;
+    min-width: 0;
+}
+
+.changeset {
+    grid-area: changeset;
+    min-width: 0;
+
+    :global(.code-view) {
+        margin: 16px 0 !important;
+
+        &:first-child {
+            margin-top: 30px !important;
+        }
+    }
+}
+
+.wrapper {
+    display: grid;
+    gap: 0 16px;
+    grid-template: "sidebar buttons" auto "sidebar changeset" 1fr / 320px 1fr;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
