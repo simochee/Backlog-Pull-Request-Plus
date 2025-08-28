@@ -25,7 +25,11 @@ export const FileTree: React.FC<Props> = ({ fileTreeNodes }) => {
 					<Fragment key={path}>
 						{children.length > 0 ? (
 							<details className={styles.details} open>
-								<summary className={styles.summary} title={name}>
+								<summary
+									className={styles.summary}
+									title={name}
+									data-bprplus-directory={name}
+								>
 									{name}
 								</summary>
 								<div className={styles.treeContent}>{renderTree(children)}</div>
@@ -39,7 +43,9 @@ export const FileTree: React.FC<Props> = ({ fileTreeNodes }) => {
 									disabled={changes === "deleted"}
 									onClick={() => handleClick(path)}
 								>
-									<span className={styles.fileName}>{name}</span>
+									<span className={styles.fileName} data-bprplus-file={name}>
+										{name}
+									</span>
 									<span
 										className={`${styles.icon} ${changes === "added" ? styles.Added : changes === "modified" ? styles.Modified : styles.Deleted}`}
 									/>
