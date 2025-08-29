@@ -1,0 +1,22 @@
+.global {
+  --bprplus-offset-top: calc(var(--bprplus-scroll-pull-request-header) + var(--globalNavHeight));
+    
+  :global(.title.-updated-list),
+  :global(.updated-list),
+  :global(.code-view__header-action),
+  :global(#footer) {
+    display: none;
+  }
+
+  :global(.code-view) {
+    margin-block: 16px !important;
+  }
+
+  :global(.code-view:first-child) {
+    margin-block-start: 30px !important;
+  }
+
+  :global(.code-view:last-child) {
+    margin-block-end: calc(100vh - 42px - var(--bprplus-offset-top)) !important;
+  }
+}

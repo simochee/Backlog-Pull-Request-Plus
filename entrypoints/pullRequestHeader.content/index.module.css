@@ -1,0 +1,25 @@
+.scrollPullRequest {
+    top: var(--globalNavHeight) !important;
+
+    :global(.content-header__summary) {
+        flex-wrap: nowrap !important;
+    }
+
+    :global(.content-header__path) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    :global(.dropdown-link) {
+        padding-right: 0 !important;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    :global(.dropdown-box) {
+        display: none;
+    }
+}

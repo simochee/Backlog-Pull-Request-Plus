@@ -1,0 +1,33 @@
+.details { 
+    scroll-margin-top: var(--bprplus-offset-top);
+
+        :global(.code-view__header) {
+        position: sticky;
+        top: var(--bprplus-offset-top);
+        z-index: 570;
+        padding-block: 4px !important;
+        border-bottom: 1px solid var(--borderColorWeak);
+
+        &:has(:global(button[aria-checked='true'])) {
+            background-color: var(--backgroundColorWeak);
+        }
+
+        :global(.code-view__header-content > div) {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+        }
+
+        :global(.code-view__header-path) {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+.codeViewAction {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 8px;
+}
