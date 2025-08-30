@@ -32,8 +32,6 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 	};
 
 	const renderFileTree = (nodes: FileTreeNode[]) => {
-		console.log(updatedFiles, nodes);
-
 		return nodes.map(({ name, fullPath, updateType, href, children }) => (
 			<Fragment key={fullPath}>
 				{children.length > 0 ? (

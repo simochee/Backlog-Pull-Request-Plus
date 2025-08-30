@@ -11,18 +11,23 @@
 	"dependencies": {
 		"@tabler/icons-react": "^3.34.1",
 		"clsx": "^2.1.1",
+		"highlight.js": "^11.11.1",
 		"p-debounce": "^4.0.0",
+		"prismjs": "^1.30.0",
 		"react": "^19.1.1",
-		"react-dom": "^19.1.1"
+		"react-dom": "^19.1.1",
+		"shiki": "^3.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.2",
 		"@tsconfig/vite-react": "^7.0.0",
+		"@types/prismjs": "^1.26.5",
 		"@types/react": "^19.1.12",
 		"@types/react-dom": "^19.1.9",
 		"@wxt-dev/auto-icons": "^1.1.0",
 		"@wxt-dev/i18n": "^0.2.4",
 		"lefthook": "^1.12.3",
+		"lightningcss": "^1.30.1",
 		"sort-package-json": "^3.4.0",
 		"wxt": "^0.20.8"
 	},

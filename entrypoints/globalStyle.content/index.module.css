@@ -23,4 +23,8 @@
   :global(.code-view:last-child) {
     margin-block-end: calc(100vh - 42px - var(--bprplus-offset-top)) !important;
   }
+
+  :global(.Line-src > span) {
+    word-break: break-all;
+  }
 }

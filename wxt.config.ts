@@ -7,4 +7,14 @@ export default defineConfig({
 		description: "__MSG_ext_description__",
 	},
 	modules: ["@wxt-dev/i18n/module", "@wxt-dev/auto-icons"],
+	vite: () => ({
+		css: {
+			lightningcss: {
+				cssModules: true,
+			},
+		},
+		build: {
+			cssMinify: "lightningcss",
+		},
+	}),
 });
