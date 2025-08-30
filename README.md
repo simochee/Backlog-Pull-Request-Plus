@@ -5,7 +5,8 @@
 Backlog Git のプルリクエスト画面にサイドバーや確認済みチェックボックスを追加するブラウザ拡張機能
 </p>
 
-![](media/screenshot.png)
+| ![](./media//screenshot_1.png) | ![](./media/screenshot_2.png) |
+| --- | --- |
 
 ## 💿 インストール
 
