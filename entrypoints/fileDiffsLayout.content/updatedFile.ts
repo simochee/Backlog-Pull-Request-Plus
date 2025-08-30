@@ -11,7 +11,7 @@ export const patchUpdatedFile = () => {
 				: el.querySelector(".pill--updated-M")
 					? "modified"
 					: "deleted";
-			const pathEl = el.querySelector(".updated-list__path a");
+			const pathEl = el.querySelector(".updated-list__path :where(a, del)");
 
 			return {
 				type,

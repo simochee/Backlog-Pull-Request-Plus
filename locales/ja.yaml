@@ -1,3 +1,9 @@
 ext:
   name: Backlog Pull Request Plus
   description: プルリクエストにコードレビューがより快適にするためのファイルツリーとファイルのチェックリストを追加します。
+
+button:
+  viewed: 確認済み
+
+input:
+  filterFilesPlaceholder: ファイルを絞り込み...

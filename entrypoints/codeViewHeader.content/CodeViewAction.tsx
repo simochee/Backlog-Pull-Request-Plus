@@ -82,7 +82,7 @@ export const CodeViewAction: React.FC<Props> = ({ filePath, fileUrl }) => {
 				onClick={handleClickViewedButton}
 			>
 				<IconCheck className={styles.icon} size={20} />
-				Viewed
+				{i18n.t("button.viewed")}
 			</button>
 		</div>
 	);

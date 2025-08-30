@@ -32,6 +32,8 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 	};
 
 	const renderFileTree = (nodes: FileTreeNode[]) => {
+		console.log(updatedFiles, nodes);
+
 		return nodes.map(({ name, fullPath, updateType, href, children }) => (
 			<Fragment key={fullPath}>
 				{children.length > 0 ? (
@@ -39,7 +41,7 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 						<summary
 							className={styles.summary}
 							title={name}
-							data-bprplus-directory={name}
+							data-blg-git-folder-icon={name}
 						>
 							{name}
 						</summary>
@@ -54,7 +56,7 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 							disabled={updateType === "deleted"}
 							onClick={() => handleClick(href)}
 						>
-							<span className={styles.fileName} data-bprplus-file={name}>
+							<span className={styles.fileName} data-blg-git-file-icon={name}>
 								{name}
 							</span>
 							<span
@@ -79,6 +81,7 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 				<div className={clsx({ [styles.Hidden]: isCollapsed })}>
 					<input
 						className="input-text"
+						placeholder={i18n.t("input.filterFilesPlaceholder")}
 						defaultValue={searchTerm}
 						onChange={(e) => setSearchTerm(e.currentTarget.value)}
 					/>
