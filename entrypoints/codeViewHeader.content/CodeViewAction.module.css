@@ -1,35 +1,35 @@
 .actions {
-  display: flex;
-  align-items: center;
-  gap: 2px;
+	display: flex;
+	align-items: center;
+	gap: 2px;
 }
 
 .viewedButton {
-    flex-shrink: 0 !important;
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    height: 32px;
-    padding-inline: 8px;
-    border: 1px solid var(--borderColorWeak);
-    border-radius: 4px;
-    background: var(--backgroundColorSchemeBase);
-    font-size: 12px;
+	flex-shrink: 0;
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	height: 32px;
+	padding-inline: 8px;
+	border: 1px solid var(--borderColorWeak);
+	border-radius: 4px;
+	background: var(--backgroundColorSchemeBase);
+	font-size: 12px;
 
-    &[aria-checked="true"] {
-        background: rgb(from var(--commonColorAcua) r g b / 0.1);
-        border-color: rgb(from var(--commonColorAcua) r g b / 0.25);
-    }
-    
-    &:hover {
-        background: var(--backgroundColorBase);
-    }
+	&[aria-checked="true"] {
+		background: rgb(from var(--commonColorAcua) r g b / 0.1);
+		border-color: rgb(from var(--commonColorAcua) r g b / 0.25);
+	}
 
-    & > .icon {
-        color: var(--borderColorPrimary);
-    }
+	&:hover {
+		background: var(--backgroundColorBase);
+	}
 
-    &[aria-checked="true"] > .icon {
-        color: var(--commonColorAcua);
-    }
+	& > .icon {
+		color: var(--borderColorPrimary);
+	}
+
+	&[aria-checked="true"] > .icon {
+		color: var(--commonColorAcua);
+	}
 }
