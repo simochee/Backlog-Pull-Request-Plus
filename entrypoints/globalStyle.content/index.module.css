@@ -8,6 +8,10 @@
     display: none;
   }
 
+  :global(.code-view-mode-buttons-wrap) {
+    z-index: 1;
+  }
+
   :global(.code-view) {
     margin-block: 16px !important;
   }

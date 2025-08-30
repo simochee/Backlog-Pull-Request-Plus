@@ -17,13 +17,13 @@
     background: var(--backgroundColorSchemeBase);
     font-size: 12px;
 
-    &:hover::before {
-        background: currentColor;
-    }
-
     &[aria-checked="true"] {
         background: rgb(from var(--commonColorAcua) r g b / 0.1);
         border-color: rgb(from var(--commonColorAcua) r g b / 0.25);
+    }
+    
+    &:hover {
+        background: var(--backgroundColorBase);
     }
 
     & > .icon {
