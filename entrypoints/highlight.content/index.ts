@@ -1,6 +1,6 @@
 import hljs from "highlight.js/lib/common";
 import { checkLanguageSupport, loadAllLanguages } from "./highlightjs";
-import "highlight.js/styles/vs.css";
+import styles from "./index.module.css";
 
 export default defineContentScript({
 	matches: ["https://*.backlog.com/git/*", "https://*.backlog.jp/git/*"],
@@ -22,6 +22,8 @@ export default defineContentScript({
 				const details = el.closest("details");
 
 				if (!span || span.dataset.highlighted === "true" || !details) continue;
+
+				details.classList.toggle(styles.details, true);
 
 				const lang = details.dataset.filePath?.split(".").pop() || "";
 				const sourceCode = span.textContent || "";

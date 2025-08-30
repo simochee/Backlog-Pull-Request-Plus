@@ -1,0 +1,95 @@
+.details {
+  /* Atom One Light theme */
+  --bprplus-highlightjs-color-base:    #fafafa;
+  --bprplus-highlightjs-color-mono-1:  #383a42;
+  --bprplus-highlightjs-color-mono-2:  #686b77;
+  --bprplus-highlightjs-color-mono-3:  #a0a1a7;
+  --bprplus-highlightjs-color-hue-1:   #0184bb;
+  --bprplus-highlightjs-color-hue-2:   #4078f2;
+  --bprplus-highlightjs-color-hue-3:   #a626a4;
+  --bprplus-highlightjs-color-hue-4:   #50a14f;
+  --bprplus-highlightjs-color-hue-5:   #e45649;
+  --bprplus-highlightjs-color-hue-5-2: #c91243;
+  --bprplus-highlightjs-color-hue-6:   #986801;
+  --bprplus-highlightjs-color-hue-6-2: #c18401;
+
+:global(.hljs) {
+  color: var(--bprplus-highlightjs-color-mono-1);
+  background: var(--bprplus-highlightjs-color-base);
+}
+:global(:where(.hljs-comment,
+.hljs-quote)) {
+  color: var(--bprplus-highlightjs-color-mono-2);
+  font-style: italic
+}
+:global(:where(.hljs-doctag,
+.hljs-keyword,
+.hljs-formula)) {
+  color: var(--bprplus-highlightjs-color-hue-3);
+}
+:global(:where(.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst)) {
+  color: var(--bprplus-highlightjs-color-hue-5);
+}
+:global(.hljs-literal) {
+  color: var(--bprplus-highlightjs-color-hue-1);
+}
+:global(:where(.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string)) {
+  color: var(--bprplus-highlightjs-color-hue-4);
+}
+:global(:where(.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number)) {
+  color: var(--bprplus-highlightjs-color-hue-6);
+}
+:global(:where(.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title)) {
+  color: var(--bprplus-highlightjs-color-hue-2);
+}
+:global(:where(.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title)) {
+  color: var(--bprplus-highlightjs-color-hue-6-2);
+}
+:global(.hljs-emphasis) {
+  font-style: italic
+}
+:global(.hljs-strong) {
+  font-weight: bold
+}
+:global(.hljs-link) {
+  text-decoration: underline
+}
+}
+
+:global(.dark-mode) .details {
+  /* Atom One Dark theme */
+  --bprplus-highlightjs-color-base:    #282c34;
+--bprplus-highlightjs-color-mono-1:  #abb2bf;
+--bprplus-highlightjs-color-mono-2:  #818896;
+--bprplus-highlightjs-color-mono-3:  #5c6370;
+--bprplus-highlightjs-color-hue-1:   #56b6c2;
+--bprplus-highlightjs-color-hue-2:   #61aeee;
+--bprplus-highlightjs-color-hue-3:   #c678dd;
+--bprplus-highlightjs-color-hue-4:   #98c379;
+--bprplus-highlightjs-color-hue-5:   #e06c75;
+--bprplus-highlightjs-color-hue-5-2: #be5046;
+--bprplus-highlightjs-color-hue-6:   #d19a66;
+--bprplus-highlightjs-color-hue-6-2: #e6c07b;
+}
