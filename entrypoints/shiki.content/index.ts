@@ -6,6 +6,8 @@ export default defineContentScript({
 	matches: ["https://*.backlog.com/git/*", "https://*.backlog.jp/git/*"],
 	allFrames: true,
 	async main() {
+		if (!shouldRunScript()) return;
+
 		await waitForLoaded();
 
 		await loadAllLanguages();

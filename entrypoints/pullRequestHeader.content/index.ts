@@ -4,6 +4,8 @@ export default defineContentScript({
 	matches: ["https://*.backlog.com/git/*", "https://*.backlog.jp/git/*"],
 	allFrames: true,
 	main() {
+		if (!shouldRunScript()) return;
+
 		const handleAppearElement = (el: HTMLElement) => {
 			el.classList.add(styles.scrollPullRequest);
 
