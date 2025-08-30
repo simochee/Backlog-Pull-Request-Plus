@@ -1,6 +1,6 @@
 ext:
   name: Backlog Pull Request Plus
-  description: Enhances your pull request UI with a clean file tree and a checklist for viewed files.
+  description: A browser extension that adds a sidebar and a "Viewed" checkbox to the Backlog Git pull request screen.
 
 button:
   viewed: Viewed

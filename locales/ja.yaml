@@ -1,6 +1,6 @@
 ext:
   name: Backlog Pull Request Plus
-  description: プルリクエストにコードレビューがより快適にするためのファイルツリーとファイルのチェックリストを追加します。
+  description: Backlog Git のプルリクエスト画面にサイドバーや確認済みチェックボックスを追加するブラウザ拡張機能。
 
 button:
   viewed: 確認済み
