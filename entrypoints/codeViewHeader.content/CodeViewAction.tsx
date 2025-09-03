@@ -56,7 +56,9 @@ export const CodeViewAction: React.FC<Props> = ({ filePath, fileUrl }) => {
 
 		const detailsEl = e.currentTarget.closest("details");
 		if (detailsEl?.open !== isViewed) {
-			detailsEl?.querySelector("summary")?.click();
+			requestAnimationFrame(() => {
+				detailsEl?.querySelector("summary")?.click();
+			});
 		}
 
 		setIsViewed((state) => {
