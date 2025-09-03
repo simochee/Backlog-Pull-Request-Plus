@@ -1,4 +1,5 @@
 name: Submit to Web Store
+run-name: "Submit to Web Store (env: ${{ inputs.environment }})"
 
 on:
   workflow_dispatch:
@@ -28,10 +29,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
+          cache: pnpm
 
       - name: configure git
         run: |
@@ -49,16 +54,18 @@ jobs:
         run: |
           npm version ${{ steps.get_latest_tag.outputs.latest_tag }} --no-git-tag-version --allow-same-version
           npm version ${{ github.event.inputs.newversion }} --force
-          
+
           new_tag=$(git describe --tags --abbrev=0)
           echo "Created new tag: ${new_tag}"
           echo "new_tag=${new_tag}" >> $GITHUB_OUTPUT
 
       - name: install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: zip extension
-        run: npx wxt zip
+        run: |
+          pnpm wxt zip
+          pnpm wxt zip -b firefox
 
       - uses: actions/upload-artifact@v4
         with:
@@ -80,13 +87,17 @@ jobs:
         with:
           path: .output/
 
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
+          cache: pnpm
 
       - name: install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: configure git
         run: |
