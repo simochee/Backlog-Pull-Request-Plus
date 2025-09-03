@@ -9,6 +9,26 @@
 	& > * {
 		min-width: 0;
 	}
+
+	:global(.code-view-mode-buttons-wrap) {
+		z-index: 1;
+	}
+
+	:global(.code-view) {
+		margin-block: 16px;
+	}
+
+	:global(.code-view:first-child) {
+		margin-block-start: 30px;
+	}
+
+	:global(.code-view:last-child) {
+		margin-block-end: calc(100vh - 42px - var(--bprplus-offset-top));
+	}
+
+	:global(.Line-src > span) {
+		word-break: break-all;
+	}
 }
 
 .sidebar {
