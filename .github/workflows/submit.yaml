@@ -128,10 +128,10 @@ jobs:
         if: inputs.environment != 'dry-run'
         run: |
           npx chrome-webstore-upload-cli \
-            --source .output/*-chrome.zip
-            --extension-id ${{ vars.CHROME_EXTENSION_ID }}
-            --client-id ${{ secrets.CHROME_CLIENT_ID }}
-            --client-secret ${{ secrets.CHROME_CLIENT_SECRET }}
+            --source .output/*-chrome.zip \
+            --extension-id ${{ vars.CHROME_EXTENSION_ID }} \
+            --client-id ${{ secrets.CHROME_CLIENT_ID }} \
+            --client-secret ${{ secrets.CHROME_CLIENT_SECRET }} \
             --refresh-token ${{ secrets.CHROME_REFRESH_TOKEN }}
 
       - name: push the new tag
