@@ -96,22 +96,32 @@ jobs:
       - name: update version
         run: npm version ${{ needs.build.outputs.new_tag }}
 
-      - name: submit to web store
+      # - name: submit to web store
+      #   run: |
+      #     npx wxt submit \
+      #       --chrome-zip .output/*-chrome.zip \
+      #       --firefox-zip .output/*-firefox.zip --firefox-sources-zip .output/*-sources.zip
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     DRY_RUN: ${{ inputs.environment == 'dry-run' }}
+      #     CHROME_EXTENSION_ID: ${{ vars.CHROME_EXTENSION_ID }}
+      #     CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+      #     CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+      #     CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+      #     CHROME_SKIP_SUBMIT_REVIEW: 'true'
+      #     FIREFOX_EXTENSION_ID: ${{ vars.FIREFOX_EXTENSION_ID }}
+      #     FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
+      #     FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
+
+      - name: submit to chrome web store
+        if: inputs.environment != 'dry-run'
         run: |
-          npx wxt submit \
-            --chrome-zip .output/*-chrome.zip \
-            --firefox-zip .output/*-firefox.zip --firefox-sources-zip .output/*-sources.zip
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DRY_RUN: ${{ inputs.environment == 'dry-run' }}
-          CHROME_EXTENSION_ID: ${{ vars.CHROME_EXTENSION_ID }}
-          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
-          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
-          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
-          CHROME_SKIP_SUBMIT_REVIEW: 'true'
-          FIREFOX_EXTENSION_ID: ${{ vars.FIREFOX_EXTENSION_ID }}
-          FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
-          FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
+          npx chrome-webstore-upload-cli \
+            --source .output/*-chrome.zip
+            --extension-id ${{ vars.CHROME_EXTENSION_ID }}
+            --client-id ${{ secrets.CHROME_CLIENT_ID }}
+            --client-secret ${{ secrets.CHROME_CLIENT_SECRET }}
+            --refresh-token ${{ secrets.CHROME_REFRESH_TOKEN }}
 
       - name: push the new tag
         if: inputs.environment != 'dry-run'
