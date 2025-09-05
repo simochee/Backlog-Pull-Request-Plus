@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import clsx from "clsx";
 import { Fragment, useState } from "react";
+import { createRoot } from "react-dom/client";
 import { buildFileTree } from "./buildFileTree";
 import styles from "./FileTree.module.css";
 import { IconButton } from "./IconButton";
@@ -116,4 +117,13 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 			</div>
 		</div>
 	);
+};
+
+export const renderFileTree = (updatedFiles: UpdatedFile[]) => {
+	const rootEl = document.createElement("div");
+	const root = createRoot(rootEl);
+
+	root.render(<FileTree updatedFiles={updatedFiles} />);
+
+	return rootEl;
 };

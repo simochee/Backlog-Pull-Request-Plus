@@ -115,7 +115,7 @@
 		display: block;
 
         &.Comment {
-            color: var(--textColorWeak);
+            color: var(--iconColorDefault);
         }
 
 		&.Added {

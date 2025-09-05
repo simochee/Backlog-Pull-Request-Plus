@@ -1,5 +1,5 @@
 import { patchCodeViewLayout } from "./codeViewLayout";
-import { renderFileTree } from "./renderFileTree";
+import { renderFileTree } from "./FileTree";
 import { patchUpdatedFile } from "./updatedFile";
 
 export default defineContentScript({
