@@ -1,0 +1,35 @@
+.root {
+    position: absolute;
+    top: 6px;
+    right: 32px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+}
+
+.circle {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    
+    &::before {
+        position: absolute;
+        inset: 50%;
+        display: block;
+        width: 10px;
+        height: 10px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background: var(--backgroundColorSchemeBase);
+        content: '';
+    }
+}
+
+.text {
+    font-size: 11px;
+}

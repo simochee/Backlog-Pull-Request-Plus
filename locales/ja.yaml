@@ -7,3 +7,5 @@ button:
 
 input:
   filterFilesPlaceholder: ファイルを絞り込み...
+
+filesViewed: $1 / $2 ファイルを確認済み

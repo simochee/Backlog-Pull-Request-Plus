@@ -1,3 +1,4 @@
+import { renderViewedFilesProgress } from "@/entrypoints/pullRequestHeader.content/ViewedFilesProgress.tsx";
 import styles from "./index.module.css";
 
 export default defineContentScript({
@@ -43,8 +44,14 @@ export default defineContentScript({
 		};
 
 		const scrollPullRequest = document.getElementById("scroll-pull-request");
-		if (scrollPullRequest instanceof HTMLElement) {
-			handleAppearElement(scrollPullRequest);
+		if (!(scrollPullRequest instanceof HTMLElement)) {
+			return;
 		}
+
+		handleAppearElement(scrollPullRequest);
+
+		// 確認済みチェックボックスの進捗バーを追加
+		const rootEl = renderViewedFilesProgress();
+		scrollPullRequest?.appendChild(rootEl);
 	},
 });

@@ -7,3 +7,5 @@ button:
 
 input:
   filterFilesPlaceholder: Filter files...
+
+filesViewed: $1 / $2 files viewed
