@@ -47,7 +47,7 @@ jobs:
       - name: get the latest tag
         id: get_latest_tag
         run: |
-          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          latest_tag=$(git for-each-ref --sort='-*authordate' --format='%(tag)' refs/tags/ | head -n 1)
           echo "latest_tag=${latest_tag}" >> $GITHUB_OUTPUT
 
       - name: bump version
