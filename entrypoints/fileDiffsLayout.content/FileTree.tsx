@@ -1,6 +1,10 @@
 import {
 	IconLayoutSidebarLeftCollapse,
 	IconLayoutSidebarLeftExpandFilled,
+	IconMessage2,
+	IconSquareRoundedChevronUp,
+	IconSquareRoundedPlus,
+	IconSquareRoundedX,
 } from "@tabler/icons-react";
 import clsx from "clsx";
 import { Fragment, useState } from "react";
@@ -32,45 +36,60 @@ export const FileTree: React.FC<Props> = ({ updatedFiles }) => {
 	};
 
 	const renderFileTree = (nodes: FileTreeNode[]) => {
-		return nodes.map(({ name, fullPath, updateType, href, children }) => (
-			<Fragment key={fullPath}>
-				{children.length > 0 ? (
-					<details className={styles.details} open>
-						<summary
-							className={styles.summary}
-							title={name}
-							data-blg-git-folder-icon={name}
-						>
-							{name}
-						</summary>
-						<div className={styles.treeContent}>{renderFileTree(children)}</div>
-					</details>
-				) : (
-					<div>
-						<button
-							type="button"
-							className={styles.file}
-							title={name}
-							disabled={updateType === "deleted"}
-							onClick={() => handleClick(href)}
-						>
-							<span className={styles.fileName} data-blg-git-file-icon={name}>
+		return nodes.map(
+			({ name, fullPath, updateType, href, comments, children }) => (
+				<Fragment key={fullPath}>
+					{children.length > 0 ? (
+						<details className={styles.details} open>
+							<summary
+								className={styles.summary}
+								title={name}
+								data-blg-git-folder-icon={name}
+							>
 								{name}
-							</span>
-							<span
-								className={`${styles.icon} ${
-									updateType === "added"
-										? styles.Added
-										: updateType === "modified"
-											? styles.Modified
-											: styles.Deleted
-								}`}
-							/>
-						</button>
-					</div>
-				)}
-			</Fragment>
-		));
+							</summary>
+							<div className={styles.treeContent}>
+								{renderFileTree(children)}
+							</div>
+						</details>
+					) : (
+						<div>
+							<button
+								type="button"
+								className={styles.file}
+								title={name}
+								disabled={updateType === "deleted"}
+								onClick={() => handleClick(href)}
+							>
+								<span className={styles.fileName} data-blg-git-file-icon={name}>
+									{name}
+								</span>
+								<span className={styles.icons}>
+									{comments > 0 && (
+										<IconMessage2
+											className={`${styles.icon} ${styles.Comment}`}
+										/>
+									)}
+									{updateType === "added" ? (
+										<IconSquareRoundedPlus
+											className={`${styles.icon} ${styles.Added}`}
+										/>
+									) : updateType === "modified" ? (
+										<IconSquareRoundedChevronUp
+											className={`${styles.icon} ${styles.Modified}`}
+										/>
+									) : (
+										<IconSquareRoundedX
+											className={`${styles.icon} ${styles.Deleted}`}
+										/>
+									)}
+								</span>
+							</button>
+						</div>
+					)}
+				</Fragment>
+			),
+		);
 	};
 
 	return (

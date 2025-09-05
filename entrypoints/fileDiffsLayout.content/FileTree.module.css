@@ -101,28 +101,32 @@
 		color: var(--textColorWeak);
 	}
 
-	& > .icon {
+    & .icons {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-left: auto;
+    }
+
+	& .icon {
 		flex-shrink: 0;
 		width: 20px;
 		height: 20px;
 		display: block;
-		margin-left: auto;
-		mask-size: contain;
-		mask-repeat: no-repeat;
-		background: currentColor;
+
+        &.Comment {
+            color: var(--textColorWeak);
+        }
 
 		&.Added {
-			mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/outline/square-rounded-plus.svg);
 			color: var(--commonColorGreen);
 		}
 
 		&.Modified {
-			mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/outline/square-rounded-chevron-up.svg);
 			color: var(--commonColorAcua);
 		}
 
 		&.Deleted {
-			mask-image: url(https://cdn.jsdelivr.net/npm/@tabler/icons@3/icons/outline/square-rounded-x.svg);
 			color: var(--commonColorPink);
 		}
 	}

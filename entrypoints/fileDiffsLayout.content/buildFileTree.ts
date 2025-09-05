@@ -1,11 +1,15 @@
 import type { FileTreeNode, UpdatedFile } from "./types";
 
+type UpdatedFilesWithComment = UpdatedFile & {
+	comments: number;
+};
+
 const buildFileTreeFromPaths = (
-	updatedFiles: UpdatedFile[],
+	updatedFiles: UpdatedFilesWithComment[],
 ): FileTreeNode[] => {
 	const root: FileTreeNode[] = [];
 
-	updatedFiles.forEach(({ path, type, href }) => {
+	updatedFiles.forEach(({ path, type, href, comments }) => {
 		const parts = path.split("/");
 		let currentLevel: FileTreeNode[] = root;
 
@@ -20,6 +24,7 @@ const buildFileTreeFromPaths = (
 					updateType: type,
 					fullPath: path,
 					href,
+					comments,
 					children: [],
 				};
 
@@ -61,6 +66,17 @@ export const optimizeFileTree = (
 };
 
 export const buildFileTree = (updatedFiles: UpdatedFile[]): FileTreeNode[] => {
-	const fileTree = buildFileTreeFromPaths(updatedFiles);
+	const updatedFilesWithComment = updatedFiles.map((updateFile) => {
+		const comments = document.querySelectorAll(
+			`[data-file-path="${CSS.escape(updateFile.path)}"] .comment-item`,
+		).length;
+
+		return {
+			...updateFile,
+			comments,
+		};
+	});
+
+	const fileTree = buildFileTreeFromPaths(updatedFilesWithComment);
 	return optimizeFileTree(fileTree);
 };

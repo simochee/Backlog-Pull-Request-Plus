@@ -11,5 +11,6 @@ export type FileTreeNode = {
 	updateType: UpdateType;
 	fullPath: string;
 	href: string;
+	comments: number;
 	children: FileTreeNode[];
 };
